@@ -51,3 +51,14 @@ test('flatten workes for arrays with different element types', () => {
     expect(flattenedArr[i]).toBe(expectedResult[i]);
   }
 });
+
+test('will not throw recursion depth error', () => {
+  let veryDeeplyNested = [];
+
+  // max recursion depth is usually 10k, so let's go a bit above that
+  for (let i = 0; i < 11000; i += 1) {
+    veryDeeplyNested = [veryDeeplyNested];
+  }
+
+  expect(flatten(veryDeeplyNested)).toEqual([]);
+});

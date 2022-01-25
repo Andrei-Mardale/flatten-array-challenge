@@ -6,6 +6,6 @@
     "jest": "^27.4.7"
   },
   "scripts": {
-    "to-js": "tsc index.ts"
+    "test": "jest"
   }
 }
